@@ -1,0 +1,700 @@
+@import "common";
+$mainColor:#005aab;
+$subColor:#ffcb08;
+
+//반응형 사이즈
+$m767:767px;
+$m560:560px;
+$m420:420px;
+
+@mixin position($t:null, $r:null, $b:null, $l:null) {
+    position: absolute;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+
+@mixin float($left:20px, $right:null) {
+    float: left;
+
+    margin: {
+        left: $left;
+        right: $right;
+    }
+}
+
+@mixin media($size) {
+    @media screen and (max-width:$size) {
+        @content;
+    }
+}
+
+//common
+.center {
+    width: 1200px;
+    margin: 0 auto;
+
+    @include media($m767) {
+        width: 100%;
+    }
+}
+
+//header
+header {
+    height:80px;
+
+    .logo {
+        float: left;
+        margin: 20px 0;
+
+        @include media($m767) {
+            float: none;
+            position: absolute;
+            left: 20px;
+            z-index: 21;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    nav {
+        @include media($m767) {
+            display: none;
+        }
+        #nav {
+            float: right;
+            margin-top: 25px;
+
+             > li {
+                float: left;
+                width: 140px;
+                text-align: center;
+                position: relative;
+
+                &:hover > a {
+                    background: $mainColor;
+                    color: $subColor;
+                }
+
+                > a {
+                    display: block;
+                    font-size: 18px;
+                    line-height: 40px;
+                }
+
+                > .sub {
+                    position: absolute;
+                    width: 100%;
+                    line-height: 40px;
+                    display: none;
+                    z-index: 100;
+                    background:#fff;
+
+                    > li {
+                        > a {
+                            display: block;
+                            font-size: 14px;
+                            letter-spacing: 2px;
+                            &:hover {
+                                background: $subColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .hamBtn {
+        @include media($m767) {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 30;
+
+            > a {
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url(../images/ham1.png);
+
+                &.active {
+                    background-image: url(../images/close1.png);
+                }
+            }
+        }
+    }
+
+    .mNav {
+        position: absolute;
+        right: 0;
+        z-index: 20;
+
+        width: 60%;
+        height: 100vh;
+        background: #fff;
+        padding-top: 80px;
+
+        display: none;
+
+        @include media($m767){
+            display: block;
+        }
+
+        #mobileNav {
+            text-align: center;
+
+            > li {
+                border-bottom: 1px solid #ccc;
+
+                &:first-child {
+                    border-top: 1px solid #ccc;
+                }
+
+                &.active {
+                    background: $mainColor;
+
+                    > a {
+
+                        color: $subColor;
+                    }
+                }
+
+                > a {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 50px;
+                    background: url(../images/mob_gnb_arrow_down_w.png) no-repeat 90% center;
+                }
+
+                .sub {
+                    background: #fff;
+
+                    > li {
+                        line-height: 40px;
+
+                        > a {
+                            display: block;
+
+                            &:hover {
+                                background: $subColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//#mainBanner
+#mainBanner {
+    width: 100%;
+    height: 797px;
+    position: relative;
+
+    @include media($m767) {
+        height: 40vw;
+    }
+
+    .banner {
+        width: 100%;
+        height: 100%;
+
+        li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+            > a {
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                background: {
+                    repeat: no-repeat;
+                    position: center center;
+                    size: cover;
+                }
+            }
+
+            &.banner1 {
+                > a {
+                    background-image: url(../images/mainvisual01.jpg);
+                }
+            }
+
+            &.banner2 {
+                > a {
+                    background-image: url(../images/mainvisual02.jpg);
+                }
+            }
+
+            &.banner3 {
+                > a {
+                    background-image: url(../images/mainvisual03.jpg);
+                }
+            }
+        }
+
+    }
+
+    .circle {
+        @include position($r:5%, $t:50%);
+        transform: translateY(-50%);
+
+        > li {
+            //@include float(30px, 0);
+
+            > a {
+                display: block;
+                width: 10px;
+                height: 100px;
+                margin-top: 10px;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.8);
+                text-indent: -99999px;
+
+                @include media($m767) {
+                    height: 6vw;
+                }
+            }
+
+            &.active {
+                > a {
+                    background-color: $mainColor;
+                }
+            }
+        }
+    }
+}
+
+//container
+#container {
+    
+    .about {
+        margin-top: 50px;
+        text-align: center;
+
+        @include media($m767) {
+            width: 100%;
+        }
+
+        @include media($m420) {
+            margin-top: 20px;
+        }
+
+        .aboutTitle {
+            p {
+                font-size: 32px;
+                font-weight: bolder;
+                letter-spacing: 10px;
+                @include media($m767){
+                    font-size:20px;
+                    font-weight: 500;
+                    letter-spacing: 5px;
+                }
+            }
+
+            span {
+                display: block;
+                margin: 20px 0;
+                word-break: keep-all;
+
+                @include media($m767) {
+                    margin: 10px 20px;
+                }
+            }
+        }
+
+        .aboutList {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 30px;
+            width: 100%;
+
+            > li {
+                width: 30%;
+
+                img {
+                    width: 100%;
+                }
+
+                .title {
+                    text-align: center;
+                    margin-top: 15px;
+                    padding-bottom: 15px;
+                    font-size: 24px;
+                    border-bottom: 1px solid rgba(204, 204, 204, 0.8);
+
+                    @include media($m560) {
+                        border: none;
+                        font-size: 16px;
+                    }
+                    @include media($m420){
+                        font-size: 14px;
+                        letter-spacing: -1px;
+                    }
+                }
+
+                span {
+                    display: block;
+                    margin: 30px;
+                    color: rgba(100, 100, 100, 0.5);
+
+                    @include media($m767) {
+                        margin: 30px 0;
+                    }
+
+                    @include media($m560) {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    .title {
+                        color: $mainColor;
+                        border-bottom: 1px solid rgb(255, 203, 8, 0.8);
+
+                        @include media($m560) {
+                            border: none;
+                        }
+                    }
+
+                    span {
+                        color: rgb(0, 90, 171, 0.3);
+                    }
+                }
+            }
+        }
+    }
+
+    .manage {
+        width: 100%;
+        height: 600px;
+
+        >ul {
+            width: 100%;
+            height: 100%;
+
+            >li {
+                width: 25%;
+                height: 100%;
+                float: left;
+                text-align: center;
+                position: relative;
+                
+                @include media($m767){
+                    width:50%;
+                    height:50%;
+                }
+
+                background: {
+                    repeat: no-repeat;
+                    position: center center;
+                    size: cover;
+                }
+
+                &.manage1 {
+                    background-image: url(../images/manage_1.png);
+                }
+
+                &.manage2 {
+                    background-image: url(../images/manage_2.png);
+                }
+
+                &.manage3 {
+                    background-image: url(../images/manage_3.png);
+                }
+
+                &.manage4 {
+                    background-image: url(../images/manage_4.png);
+                }
+
+                &:hover {
+                    > .mbg {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+
+                > a {
+                    @include position($l:50%, $b:100px);
+                    transform: translateX(-50%);
+
+                    @include media($m767) {
+                        bottom: 30px;
+                    }
+
+                    > p {
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: white;
+                        margin-bottom: 20px;
+                        text-shadow: 2px 2px 2px black;
+
+                        @include media($m420) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    > span {
+                        display: block;
+                        width: 100px;
+                        padding: 10px 20px;
+                        background: white;
+
+                        @include media($m767) {
+                            padding: 5px 0;
+                            box-sizing: border-box;
+                            width: 30vw;
+                        }
+                    }
+
+                    &:hover {
+                        > span {
+                            background: $subColor;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact {
+        position: relative;
+        width:100%;
+        
+        >div {
+            > i {
+                @include position($l:45%, $t:10%);
+                transform: translateX(-50%);
+                font-size: 40px;
+
+                @include media($m767) {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;                
+            }
+
+            >.contxt {
+                > p {
+                    width: 900px;
+                    font-size: 24px;
+                    @include position($t:25%, $l:45%);
+                    transform: translateX(-50%);
+                    line-height: 2;
+                    word-break: keep-all;
+
+                    @include media($m767) {
+                        top:10%;
+                        width: 70vw;
+                        font-size: 16px;
+                        line-height: 1.5;
+                    }
+                    @include media($m560){
+                        display: none;
+                    }
+                }
+
+                > span {
+                    display: block;
+                    font-size: 32px;
+                    letter-spacing: 10px;
+                    color: rgb(150, 150, 150, 0.4);
+                    @include position($t:60%, $l:45%);
+                    transform: translateX(-50%);
+                    @include media($m767) {
+                        font-size:28px;
+                        top:45%;
+                    }
+                    @include media($m560) {
+                        top:20%;
+                    }
+                }
+
+                > a {
+                    display: block;
+                    width: 100px;
+                    padding: 10px 20px;
+                    border: 2px solid black;
+                    letter-spacing: 2px;
+                    text-align: center;
+                    @include position($b:10%, $l:45%);
+                    transform: translateX(-50%);
+
+                    @include media($m560) {
+                        bottom: 20px;
+                        padding:5px 10px;
+                    }
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .map {
+        width: 100%;
+        height: 220px;
+        position: relative;
+
+        @include media($m767) {
+            height: 22vw;
+        }
+        @include media($m420) {
+            height: 28vw;
+        }
+
+        .mapBg {
+            width: 100%;
+            height: 100%;
+            background: url(../images/bg.jpg) center center;
+            @include position($t:0px);
+            z-index: -1;
+        }
+
+        > ul {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 50px;
+
+            @include media($m767) {
+                margin: 0;
+            }
+
+            > li {
+                width: 180px;
+
+                > a {
+                    color: white;
+                    text-align: center;
+
+                    > i {
+                        display: block;
+                        font-size: 60px;
+                        text-align: center;
+                        margin: 40px 20px 30px 20px;
+
+                        @include media($m767) {
+                            margin: 10px 0;
+                            font-size: 50px;
+                        }
+
+                        @include media($m560) {
+                            margin: 10px 0 0 0;
+                            font-size: 35px;
+                        }
+
+                    }
+
+                    > div {
+                        font-size: 18px;
+
+                        @include media($m767) {
+                            font-size: 14px;
+                        }
+                    }
+
+                    &:hover {
+                        color: $subColor;
+                    }
+                }
+
+                &:last-child {
+                    color: white;
+                    text-align: center;
+                    font-size: 16px;
+                    letter-spacing: -1px;
+
+                    @include media($m767) {
+                        display: none;
+                    }
+
+                    > div {
+                        margin-top: 50px;
+                    }
+
+                    > p {
+                        margin: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//footer
+footer {
+    background: #eee;
+        @include media($m767) {
+            text-align: center;
+        }
+
+        .footLogo {
+            float: left;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 50px 30px 50px 0;
+
+            @include media($m767) {
+                display: none;
+            }
+        }
+
+        .info {
+            float: left;
+            line-height: 1.5;
+            margin-top: 30px;
+
+            @include media($m767) {
+                float: none;
+                margin: 0;
+                padding-top: 30px;
+            }
+        }
+
+        address {
+            float: right;
+            line-height: 1.5;
+            margin-top: 30px;
+
+            @include media($m767) {
+                float: none;
+                margin-bottom: 30px;
+            }
+            @include media($m420){
+                letter-spacing: -1px;
+                margin:30px 0 0 0;
+            }
+
+            p {
+                position: relative;
+
+                span {
+                    margin: 0 20px;
+
+                    @include media($m767) {
+                        margin: 0;
+                        display: block;
+                    }
+                }
+            }
+        }
+    
+}

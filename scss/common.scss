@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Spoqa Han Sans Neo',"돋움", dotum, sans-serif;
+	font-size: 14px;
+	color: #333;
+}
+
+li {
+	list-style: none;
+}
+img{
+	vertical-align: top;
+}
+i,address{
+	font-style: normal;
+}
+a{
+	color:#333;
+	text-decoration: none;
+}
+/*clearFix*/
+.clearFix::after{
+    content:"";
+    display: block;
+    clear:both;
+}
+/*Hide*/
+.blind{
+	display: block;
+	position: absolute;
+	top:-99999px;
+}

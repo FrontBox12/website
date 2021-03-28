@@ -1,0 +1,647 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Spoqa Han Sans Neo", "돋움", dotum, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+i, address {
+  font-style: normal;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+/*clearFix*/
+.clearFix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*Hide*/
+.blind {
+  display: block;
+  position: absolute;
+  top: -99999px;
+}
+
+.center {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .center {
+    width: 100%;
+  }
+}
+
+header {
+  height: 80px;
+}
+header .logo {
+  float: left;
+  margin: 20px 0;
+}
+@media screen and (max-width: 767px) {
+  header .logo {
+    float: none;
+    position: absolute;
+    left: 20px;
+    z-index: 21;
+  }
+}
+header .logo img {
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  header nav {
+    display: none;
+  }
+}
+header nav #nav {
+  float: right;
+  margin-top: 25px;
+}
+header nav #nav > li {
+  float: left;
+  width: 140px;
+  text-align: center;
+  position: relative;
+}
+header nav #nav > li:hover > a {
+  background: #005aab;
+  color: #ffcb08;
+}
+header nav #nav > li > a {
+  display: block;
+  font-size: 18px;
+  line-height: 40px;
+}
+header nav #nav > li > .sub {
+  position: absolute;
+  width: 100%;
+  line-height: 40px;
+  display: none;
+  z-index: 100;
+  background: #fff;
+}
+header nav #nav > li > .sub > li > a {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+header nav #nav > li > .sub > li > a:hover {
+  background: #ffcb08;
+}
+@media screen and (max-width: 767px) {
+  header .hamBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+  }
+  header .hamBtn > a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/ham1.png);
+  }
+  header .hamBtn > a.active {
+    background-image: url(../images/close1.png);
+  }
+}
+header .mNav {
+  position: absolute;
+  right: 0;
+  z-index: 20;
+  width: 60%;
+  height: 100vh;
+  background: #fff;
+  padding-top: 80px;
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  header .mNav {
+    display: block;
+  }
+}
+header .mNav #mobileNav {
+  text-align: center;
+}
+header .mNav #mobileNav > li {
+  border-bottom: 1px solid #ccc;
+}
+header .mNav #mobileNav > li:first-child {
+  border-top: 1px solid #ccc;
+}
+header .mNav #mobileNav > li.active {
+  background: #005aab;
+}
+header .mNav #mobileNav > li.active > a {
+  color: #ffcb08;
+}
+header .mNav #mobileNav > li > a {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 50px;
+  background: url(../images/mob_gnb_arrow_down_w.png) no-repeat 90% center;
+}
+header .mNav #mobileNav > li .sub {
+  background: #fff;
+}
+header .mNav #mobileNav > li .sub > li {
+  line-height: 40px;
+}
+header .mNav #mobileNav > li .sub > li > a {
+  display: block;
+}
+header .mNav #mobileNav > li .sub > li > a:hover {
+  background: #ffcb08;
+}
+
+#mainBanner {
+  width: 100%;
+  height: 797px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  #mainBanner {
+    height: 40vw;
+  }
+}
+#mainBanner .banner {
+  width: 100%;
+  height: 100%;
+}
+#mainBanner .banner li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#mainBanner .banner li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+#mainBanner .banner li.banner1 > a {
+  background-image: url(../images/mainvisual01.jpg);
+}
+#mainBanner .banner li.banner2 > a {
+  background-image: url(../images/mainvisual02.jpg);
+}
+#mainBanner .banner li.banner3 > a {
+  background-image: url(../images/mainvisual03.jpg);
+}
+#mainBanner .circle {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+#mainBanner .circle > li > a {
+  display: block;
+  width: 10px;
+  height: 100px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-indent: -99999px;
+}
+@media screen and (max-width: 767px) {
+  #mainBanner .circle > li > a {
+    height: 6vw;
+  }
+}
+#mainBanner .circle > li.active > a {
+  background-color: #005aab;
+}
+
+#container .about {
+  margin-top: 50px;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  #container .about {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 420px) {
+  #container .about {
+    margin-top: 20px;
+  }
+}
+#container .about .aboutTitle p {
+  font-size: 32px;
+  font-weight: bolder;
+  letter-spacing: 10px;
+}
+@media screen and (max-width: 767px) {
+  #container .about .aboutTitle p {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 5px;
+  }
+}
+#container .about .aboutTitle span {
+  display: block;
+  margin: 20px 0;
+  word-break: keep-all;
+}
+@media screen and (max-width: 767px) {
+  #container .about .aboutTitle span {
+    margin: 10px 20px;
+  }
+}
+#container .about .aboutList {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  width: 100%;
+}
+#container .about .aboutList > li {
+  width: 30%;
+}
+#container .about .aboutList > li img {
+  width: 100%;
+}
+#container .about .aboutList > li .title {
+  text-align: center;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  font-size: 24px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.8);
+}
+@media screen and (max-width: 560px) {
+  #container .about .aboutList > li .title {
+    border: none;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 420px) {
+  #container .about .aboutList > li .title {
+    font-size: 14px;
+    letter-spacing: -1px;
+  }
+}
+#container .about .aboutList > li span {
+  display: block;
+  margin: 30px;
+  color: rgba(100, 100, 100, 0.5);
+}
+@media screen and (max-width: 767px) {
+  #container .about .aboutList > li span {
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 560px) {
+  #container .about .aboutList > li span {
+    display: none;
+  }
+}
+#container .about .aboutList > li:hover .title {
+  color: #005aab;
+  border-bottom: 1px solid rgba(255, 203, 8, 0.8);
+}
+@media screen and (max-width: 560px) {
+  #container .about .aboutList > li:hover .title {
+    border: none;
+  }
+}
+#container .about .aboutList > li:hover span {
+  color: rgba(0, 90, 171, 0.3);
+}
+#container .manage {
+  width: 100%;
+  height: 600px;
+}
+#container .manage > ul {
+  width: 100%;
+  height: 100%;
+}
+#container .manage > ul > li {
+  width: 25%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+@media screen and (max-width: 767px) {
+  #container .manage > ul > li {
+    width: 50%;
+    height: 50%;
+  }
+}
+#container .manage > ul > li.manage1 {
+  background-image: url(../images/manage_1.png);
+}
+#container .manage > ul > li.manage2 {
+  background-image: url(../images/manage_2.png);
+}
+#container .manage > ul > li.manage3 {
+  background-image: url(../images/manage_3.png);
+}
+#container .manage > ul > li.manage4 {
+  background-image: url(../images/manage_4.png);
+}
+#container .manage > ul > li:hover > .mbg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#container .manage > ul > li > a {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (max-width: 767px) {
+  #container .manage > ul > li > a {
+    bottom: 30px;
+  }
+}
+#container .manage > ul > li > a > p {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 2px black;
+}
+@media screen and (max-width: 420px) {
+  #container .manage > ul > li > a > p {
+    font-size: 18px;
+  }
+}
+#container .manage > ul > li > a > span {
+  display: block;
+  width: 100px;
+  padding: 10px 20px;
+  background: white;
+}
+@media screen and (max-width: 767px) {
+  #container .manage > ul > li > a > span {
+    padding: 5px 0;
+    box-sizing: border-box;
+    width: 30vw;
+  }
+}
+#container .manage > ul > li > a:hover > span {
+  background: #ffcb08;
+  font-weight: bold;
+}
+#container .contact {
+  position: relative;
+  width: 100%;
+}
+#container .contact > div > i {
+  position: absolute;
+  top: 10%;
+  left: 45%;
+  transform: translateX(-50%);
+  font-size: 40px;
+}
+@media screen and (max-width: 767px) {
+  #container .contact > div > i {
+    display: none;
+  }
+}
+#container .contact > div img {
+  width: 100%;
+  height: 100%;
+}
+#container .contact > div > .contxt > p {
+  width: 900px;
+  font-size: 24px;
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  transform: translateX(-50%);
+  line-height: 2;
+  word-break: keep-all;
+}
+@media screen and (max-width: 767px) {
+  #container .contact > div > .contxt > p {
+    top: 10%;
+    width: 70vw;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+@media screen and (max-width: 560px) {
+  #container .contact > div > .contxt > p {
+    display: none;
+  }
+}
+#container .contact > div > .contxt > span {
+  display: block;
+  font-size: 32px;
+  letter-spacing: 10px;
+  color: rgba(150, 150, 150, 0.4);
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translateX(-50%);
+}
+@media screen and (max-width: 767px) {
+  #container .contact > div > .contxt > span {
+    font-size: 28px;
+    top: 45%;
+  }
+}
+@media screen and (max-width: 560px) {
+  #container .contact > div > .contxt > span {
+    top: 20%;
+  }
+}
+#container .contact > div > .contxt > a {
+  display: block;
+  width: 100px;
+  padding: 10px 20px;
+  border: 2px solid black;
+  letter-spacing: 2px;
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  left: 45%;
+  transform: translateX(-50%);
+}
+@media screen and (max-width: 560px) {
+  #container .contact > div > .contxt > a {
+    bottom: 20px;
+    padding: 5px 10px;
+  }
+}
+#container .contact > div > .contxt > a:hover {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+#container .map {
+  width: 100%;
+  height: 220px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  #container .map {
+    height: 22vw;
+  }
+}
+@media screen and (max-width: 420px) {
+  #container .map {
+    height: 28vw;
+  }
+}
+#container .map .mapBg {
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg.jpg) center center;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+#container .map > ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 50px;
+}
+@media screen and (max-width: 767px) {
+  #container .map > ul {
+    margin: 0;
+  }
+}
+#container .map > ul > li {
+  width: 180px;
+}
+#container .map > ul > li > a {
+  color: white;
+  text-align: center;
+}
+#container .map > ul > li > a > i {
+  display: block;
+  font-size: 60px;
+  text-align: center;
+  margin: 40px 20px 30px 20px;
+}
+@media screen and (max-width: 767px) {
+  #container .map > ul > li > a > i {
+    margin: 10px 0;
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 560px) {
+  #container .map > ul > li > a > i {
+    margin: 10px 0 0 0;
+    font-size: 35px;
+  }
+}
+#container .map > ul > li > a > div {
+  font-size: 18px;
+}
+@media screen and (max-width: 767px) {
+  #container .map > ul > li > a > div {
+    font-size: 14px;
+  }
+}
+#container .map > ul > li > a:hover {
+  color: #ffcb08;
+}
+#container .map > ul > li:last-child {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: -1px;
+}
+@media screen and (max-width: 767px) {
+  #container .map > ul > li:last-child {
+    display: none;
+  }
+}
+#container .map > ul > li:last-child > div {
+  margin-top: 50px;
+}
+#container .map > ul > li:last-child > p {
+  margin: 20px;
+}
+
+footer {
+  background: #eee;
+}
+@media screen and (max-width: 767px) {
+  footer {
+    text-align: center;
+  }
+}
+footer .footLogo {
+  float: left;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 50px 30px 50px 0;
+}
+@media screen and (max-width: 767px) {
+  footer .footLogo {
+    display: none;
+  }
+}
+footer .info {
+  float: left;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+@media screen and (max-width: 767px) {
+  footer .info {
+    float: none;
+    margin: 0;
+    padding-top: 30px;
+  }
+}
+footer address {
+  float: right;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+@media screen and (max-width: 767px) {
+  footer address {
+    float: none;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 420px) {
+  footer address {
+    letter-spacing: -1px;
+    margin: 30px 0 0 0;
+  }
+}
+footer address p {
+  position: relative;
+}
+footer address p span {
+  margin: 0 20px;
+}
+@media screen and (max-width: 767px) {
+  footer address p span {
+    margin: 0;
+    display: block;
+  }
+}
